@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "Node",
+    "target": "ES2017"
+  }
+}
