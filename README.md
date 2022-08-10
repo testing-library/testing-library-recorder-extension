@@ -1,4 +1,4 @@
-# testing-library-recorder-extension
+# Testing Library Recorder Extension
 
 Testing Library Extension for Chrome DevTools Recorder
 

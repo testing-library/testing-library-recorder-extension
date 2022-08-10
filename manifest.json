@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "version": "0.1.0",
-  "name": "CustomJSONExtension",
-  "description": "DevTools extensions showing how to extend the Recorder panel.",
+  "name": "Testing Library Recorder",
+  "description": "Testing Library Extension for Chrome DevTools Recorder",
   "permissions": [],
   "devtools_page": "DevToolsPlugin.html",
   "content_security_policy": {

@@ -9,6 +9,6 @@ export class RecorderPlugin {
 
 chrome.devtools.recorder.registerRecorderExtensionPlugin(
   new RecorderPlugin(),
-  /* name=*/ "Custom JSON",
+  /* name=*/ "Testing Library",
   /* mediaType=*/ "application/json",
 )
