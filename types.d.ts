@@ -1,4 +1,4 @@
-import { Step, UserFlow } from "@puppeteer/replay"
+import type { Step, UserFlow } from "@puppeteer/replay"
 
 declare global {
   /** Use the chrome.devtools.recorder API to customize the Recorder panel in DevTools. */
