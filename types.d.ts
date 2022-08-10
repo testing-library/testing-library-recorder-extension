@@ -15,19 +15,19 @@ declare global {
        * Converts a step of the recording from the Recorder panel format into a string.
        * @param step A step of the recording of a user interaction with the page.
        */
-      stringifyStep(step: Step): Promise<string>
+      stringifyStep?(step: Step): Promise<string>
     }
 
     /**
      * Registers a Recorder extension plugin.
      * @param plugin An instance implementing the `RecorderExtensionPlugin` interface.
-     * @param name The name of the plugin.
-     * @param mediaType The media type of the string content that the plugin produces.
+     * @param [name] The name of the plugin.
+     * @param [mediaType="text/plain"] The media type of the string content that the plugin produces.
      */
     function registerRecorderExtensionPlugin(
       plugin: RecorderExtensionPlugin,
-      name: string,
-      mediaType: string,
+      name?: string,
+      mediaType?: string,
     ): void
   }
 }

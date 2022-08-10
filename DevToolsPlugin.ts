@@ -1,11 +1,8 @@
-import type { Step, UserFlow } from "@puppeteer/replay"
+import type { UserFlow } from "@puppeteer/replay"
 
 export class RecorderPlugin {
   async stringify(recording: UserFlow) {
     return JSON.stringify(recording, null, 2)
-  }
-  async stringifyStep(step: Step) {
-    return JSON.stringify(step, null, 2)
   }
 }
 
