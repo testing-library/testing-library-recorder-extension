@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "type": "tsc"
+    "prepare": "tsc"
   },
   "dependencies": {
     "@puppeteer/replay": "^0.6.1",
