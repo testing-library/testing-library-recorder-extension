@@ -1,0 +1,42 @@
+{
+  "title": "Example",
+  "steps": [
+    {
+      "type": "setViewport",
+      "width": 0,
+      "height": 0,
+      "deviceScaleFactor": 1,
+      "isMobile": false,
+      "hasTouch": false,
+      "isLandscape": false
+    },
+    {
+      "type": "navigate",
+      "url": "https://example.com/",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://example.com/",
+          "title": "Example Domain"
+        }
+      ]
+    },
+    {
+      "type": "click",
+      "target": "main",
+      "selectors": [
+        ["aria/More information..."],
+        ["body > div > p:nth-child(3) > a"]
+      ],
+      "offsetY": 0,
+      "offsetX": 0,
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://www.iana.org/domains/reserved",
+          "title": ""
+        }
+      ]
+    }
+  ]
+}
