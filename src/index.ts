@@ -1,6 +1,6 @@
 import { stringify, type UserFlow } from "@puppeteer/replay"
 
-export class RecorderPlugin {
+class RecorderPlugin {
   stringify(recording: UserFlow) {
     return stringify(recording)
   }
