@@ -3,10 +3,9 @@
     "strict": true,
     "moduleResolution": "Node",
     "noEmit": true,
-    "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
-    "target": "ES2017"
+    "target": "ES2015"
   },
   "exclude": ["dist"]
 }
