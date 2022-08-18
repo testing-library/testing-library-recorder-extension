@@ -1,5 +1,8 @@
+import webpack from "webpack"
 import CopyPlugin from "copy-webpack-plugin"
 import HtmlPlugin from "html-webpack-plugin"
+
+const { IgnorePlugin } = webpack
 
 export default {
   module: {
@@ -20,5 +23,8 @@ export default {
       patterns: ["manifest.json"],
     }),
     new HtmlPlugin(),
+    new IgnorePlugin({
+      resourceRegExp: /^puppeteer$/,
+    }),
   ],
 }

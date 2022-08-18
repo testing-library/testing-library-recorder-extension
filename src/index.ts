@@ -1,13 +1,13 @@
-import type { UserFlow } from "@puppeteer/replay"
+import { stringify, type UserFlow } from "@puppeteer/replay"
 
 export class RecorderPlugin {
-  async stringify(recording: UserFlow) {
-    return JSON.stringify(recording, null, 2)
+  stringify(recording: UserFlow) {
+    return stringify(recording)
   }
 }
 
 chrome.devtools.recorder.registerRecorderExtensionPlugin(
   new RecorderPlugin(),
   "Testing Library",
-  "application/json",
+  "application/javascript",
 )
