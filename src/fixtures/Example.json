@@ -22,20 +22,11 @@
       ]
     },
     {
-      "type": "click",
-      "target": "main",
+      "type": "waitForElement",
+      "frame": [],
       "selectors": [
         ["aria/More information..."],
         ["body > div > p:nth-child(3) > a"]
-      ],
-      "offsetY": 0,
-      "offsetX": 0,
-      "assertedEvents": [
-        {
-          "type": "navigation",
-          "url": "https://www.iana.org/domains/reserved",
-          "title": ""
-        }
       ]
     }
   ]
