@@ -4,7 +4,7 @@
   "name": "Testing Library Recorder",
   "description": "Testing Library Extension for Chrome DevTools Recorder",
   "permissions": [],
-  "devtools_page": "DevToolsPlugin.html",
+  "devtools_page": "index.html",
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
