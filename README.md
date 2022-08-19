@@ -38,9 +38,11 @@ Testing Library Extension for Chrome DevTools Recorder
 | `doubleClick`       | `await userEvent.dblClick(element)`                                                                  |
 | `keyDown`           | `await userEvent.keyboard("{Key>}")`                                                                 |
 | `keyUp`             | `await userEvent.keyboard("{/Key}")`                                                                 |
-| `navigate`          | `expect(location.href).toBe("https://example.com/")` `expect(document.title).toBe("Example Domain")` |
+| `navigate` \*       | `expect(location.href).toBe("https://example.com/")` `expect(document.title).toBe("Example Domain")` |
 | `waitForElement`    | `await waitFor(() => element)`                                                                       |
 | `waitForExpression` | `await waitFor(() => expression)`                                                                    |
+
+\* Only one `navigate` step is allowed per test because `jest-environment-url` must load pages since `jsdom` does not support navigation.
 
 ## Inspiration
 
