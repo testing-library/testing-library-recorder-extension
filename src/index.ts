@@ -1,14 +1,14 @@
 import {
   stringify,
-  StringifyExtension,
   type LineWriter,
   type NavigateStep,
   type Selector,
   type Step,
+  type StringifyExtension,
   type UserFlow,
 } from "@puppeteer/replay"
 
-export class Extension extends StringifyExtension {
+export class Extension implements StringifyExtension {
   async beforeAllSteps(out: LineWriter, flow: UserFlow) {
     // Jest docblock
     out.appendLine("/**")
