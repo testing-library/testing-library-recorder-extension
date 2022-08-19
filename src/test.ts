@@ -70,7 +70,14 @@ describe("Extension", () => {
           type: "keyDown",
           key: "Meta",
         },
-        'await userEvent.keyboard("{Meta}")',
+        'await userEvent.keyboard("{Meta>}")',
+      ],
+      [
+        {
+          type: "keyUp",
+          key: "Meta",
+        },
+        'await userEvent.keyboard("{/Meta}")',
       ],
       [
         {

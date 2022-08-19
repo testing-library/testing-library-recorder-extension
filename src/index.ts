@@ -72,7 +72,12 @@ export class Extension implements StringifyExtension {
         break
       case "keyDown":
         out.appendLine(
-          `await userEvent.keyboard(${JSON.stringify(`{${step.key}}`)})`,
+          `await userEvent.keyboard(${JSON.stringify(`{${step.key}>}`)})`,
+        )
+        break
+      case "keyUp":
+        out.appendLine(
+          `await userEvent.keyboard(${JSON.stringify(`{/${step.key}}`)})`,
         )
         break
       case "navigate":
