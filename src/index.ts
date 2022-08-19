@@ -56,7 +56,6 @@ export class Extension extends StringifyExtension {
         )
         break
       case "navigate":
-      case "setViewport":
         break
       default:
         console.log(

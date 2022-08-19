@@ -2,15 +2,6 @@
   "title": "Example",
   "steps": [
     {
-      "type": "setViewport",
-      "width": 0,
-      "height": 0,
-      "deviceScaleFactor": 1,
-      "isMobile": false,
-      "hasTouch": false,
-      "isLandscape": false
-    },
-    {
       "type": "navigate",
       "url": "https://example.com/",
       "assertedEvents": [
