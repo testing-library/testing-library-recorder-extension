@@ -9,7 +9,8 @@
     "noEmit": true,
     "checkJs": true,
     "esModuleInterop": true,
-    "target": "ES2015"
+    "target": "ES2015",
+    "skipLibCheck": true
   },
   "exclude": ["src/fixtures/*.test.*", "dist"]
 }
