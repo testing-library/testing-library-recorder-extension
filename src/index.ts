@@ -46,9 +46,9 @@ export class Extension implements StringifyExtension {
     switch (step.type) {
       case "click":
         out.appendLine(
-          `userEvent.click(${JSON.stringify(
-            stringifySelector(step.selectors[0]),
-          )})`,
+          `await userEvent.click(${stringifySelector(step.selectors[0])}${
+            step.button === "secondary" ? ", { buttons: 2 }" : ""
+          })`,
         )
         break
       case "navigate":
