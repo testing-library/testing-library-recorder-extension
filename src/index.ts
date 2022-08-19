@@ -43,7 +43,6 @@ export class Extension extends StringifyExtension {
   }
 
   async stringifyStep(out: LineWriter, step: Step, flow: UserFlow) {
-    // Events
     switch (step.type) {
       case "click":
         out.appendLine(
@@ -56,29 +55,25 @@ export class Extension extends StringifyExtension {
         )
         break
       case "navigate":
+        if (step === flow.steps.find((step) => step.type === "navigate")) {
+          for (const { url, title } of step.assertedEvents ?? []) {
+            if (url) {
+              out.appendLine(`expect(location.href).toBe("${url}")`)
+            }
+            if (title) {
+              out.appendLine(`expect(document.title).toBe("${title}")`)
+            }
+          }
+        } else {
+          console.log(
+            "Warning: Testing Library does not currently handle more than one navigation step per test.",
+          )
+        }
         break
       default:
         console.log(
           `Warning: Testing Library does not currently handle migrating steps of type: ${step.type}. Please check the output to see how this might affect your test.`,
         )
-    }
-
-    // Assertions
-    if (step.type === "navigate") {
-      if (step === flow.steps.find((step) => step.type === "navigate")) {
-        for (const { url, title } of step.assertedEvents ?? []) {
-          if (url) {
-            out.appendLine(`expect(location.href).toBe("${url}")`)
-          }
-          if (title) {
-            out.appendLine(`expect(document.title).toBe("${title}")`)
-          }
-        }
-      } else {
-        console.log(
-          "Warning: Testing Library does not currently handle more than one navigation step per test.",
-        )
-      }
     }
   }
 }
