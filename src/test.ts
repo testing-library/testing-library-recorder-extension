@@ -24,6 +24,14 @@ describe("Extension", () => {
     test.each<[Step, string]>([
       [
         {
+          type: "change",
+          selectors,
+          value: "value",
+        },
+        'await userEvent.type(screen.getByText("Test"), "value")',
+      ],
+      [
+        {
           type: "click",
           selectors,
           offsetX: 0,
@@ -40,6 +48,22 @@ describe("Extension", () => {
           offsetY: 0,
         },
         'await userEvent.click(screen.getByText("Test"), { buttons: 2 })',
+      ],
+      [
+        {
+          type: "hover",
+          selectors,
+        },
+        'await userEvent.hover(screen.getByText("Test"))',
+      ],
+      [
+        {
+          type: "doubleClick",
+          selectors,
+          offsetX: 0,
+          offsetY: 0,
+        },
+        'await userEvent.dblClick(screen.getByText("Test"))',
       ],
       [
         {
@@ -61,6 +85,13 @@ describe("Extension", () => {
           selectors,
         },
         'await waitFor(() => screen.getByText("Test"))',
+      ],
+      [
+        {
+          type: "waitForExpression",
+          expression: "Promise.resolve()",
+        },
+        "await waitFor(() => Promise.resolve())",
       ],
     ])("%p", async (step, expected) => {
       const writer = new LineWriterImpl("  ")

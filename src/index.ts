@@ -44,9 +44,28 @@ export class Extension implements StringifyExtension {
 
   async stringifyStep(out: LineWriter, step: Step, flow: UserFlow) {
     switch (step.type) {
+      case "change":
+        out.appendLine(
+          `await userEvent.type(${stringifySelector(
+            step.selectors[0],
+          )}, ${JSON.stringify(step.value)})`,
+        )
+        break
       case "click":
         out.appendLine(
           `await userEvent.click(${stringifySelector(step.selectors[0])}${
+            step.button === "secondary" ? ", { buttons: 2 }" : ""
+          })`,
+        )
+        break
+      case "hover":
+        out.appendLine(
+          `await userEvent.hover(${stringifySelector(step.selectors[0])})`,
+        )
+        break
+      case "doubleClick":
+        out.appendLine(
+          `await userEvent.dblClick(${stringifySelector(step.selectors[0])}${
             step.button === "secondary" ? ", { buttons: 2 }" : ""
           })`,
         )
@@ -73,6 +92,9 @@ export class Extension implements StringifyExtension {
         out.appendLine(
           `await waitFor(() => ${stringifySelector(step.selectors[0])})`,
         )
+        break
+      case "waitForExpression":
+        out.appendLine(`await waitFor(() => ${step.expression})`)
         break
       default:
         console.log(
