@@ -24,3 +24,19 @@ Testing Library Extension for Chrome DevTools Recorder
 ## Inspiration
 
 - [Puppeteer Replay examples](https://github.com/puppeteer/replay/tree/main/examples)
+- [Cypress Recorder Extension](https://github.com/cypress-io/cypress-recorder-extension)
+
+## Supported Chrome Recorder Step Types
+
+| Type                | Output                                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| `change`            | `await userEvent.type(element, "value")`                                                             |
+| `click`             | `await userEvent.click(element)`                                                                     |
+| `click` (right)     | `await userEvent.click(element, { buttons: 2 })`                                                     |
+| `hover`             | `await userEvent.hover(element)`                                                                     |
+| `doubleClick`       | `await userEvent.dblClick(element)`                                                                  |
+| `keyDown`           | `await userEvent.keyboard("{Key>}")`                                                                 |
+| `keyUp`             | `await userEvent.keyboard("{/Key}")`                                                                 |
+| `navigate`          | `expect(location.href).toBe("https://example.com/")` `expect(document.title).toBe("Example Domain")` |
+| `waitForElement`    | `await waitFor(() => element)`                                                                       |
+| `waitForExpression` | `await waitFor(() => expression)`                                                                    |
