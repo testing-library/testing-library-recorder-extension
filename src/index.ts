@@ -42,27 +42,17 @@ export class Extension extends StringifyExtension {
     out.appendLine("})")
   }
 
-  stringifySelector(selector: Selector) {
-    const selectorString = Array.isArray(selector) ? selector[0] : selector
-
-    if (selectorString.startsWith("aria/")) {
-      return `screen.getByText("${selectorString.slice(5)}")`
-    } else {
-      return `document.querySelector("${selectorString}")`
-    }
-  }
-
   async stringifyStep(out: LineWriter, step: Step, flow: UserFlow) {
     // Events
     switch (step.type) {
       case "click":
         out.appendLine(
-          `userEvent.click(${this.stringifySelector(step.selectors[0])}")`,
+          `userEvent.click(${stringifySelector(step.selectors[0])}")`,
         )
         break
       case "waitForElement":
         out.appendLine(
-          `await waitFor(() => ${this.stringifySelector(step.selectors[0])})`,
+          `await waitFor(() => ${stringifySelector(step.selectors[0])})`,
         )
         break
       case "navigate":
@@ -91,6 +81,16 @@ export class Extension extends StringifyExtension {
         )
       }
     }
+  }
+}
+
+function stringifySelector(selector: Selector) {
+  const selectorString = Array.isArray(selector) ? selector[0] : selector
+
+  if (selectorString.startsWith("aria/")) {
+    return `screen.getByText("${selectorString.slice(5)}")`
+  } else {
+    return `document.querySelector("${selectorString}")`
   }
 }
 
