@@ -44,6 +44,51 @@ Testing Library Extension for Chrome DevTools Recorder
 
 \* Only one `navigate` step is allowed per test because `jest-environment-url` must load pages since `jsdom` does not support navigation. Without any `navigate` steps, you'll need to edit your test to manually load the DOM.
 
+## Example
+
+```json
+{
+  "title": "Example",
+  "steps": [
+    {
+      "type": "navigate",
+      "url": "https://example.com/",
+      "assertedEvents": [
+        {
+          "type": "navigation",
+          "url": "https://example.com/",
+          "title": "Example Domain"
+        }
+      ]
+    },
+    {
+      "type": "waitForElement",
+      "frame": [],
+      "selectors": [
+        ["aria/More information..."],
+        ["body > div > p:nth-child(3) > a"]
+      ]
+    }
+  ]
+}
+```
+
+```js
+/**
+ * @jest-environment url
+ * @jest-environment-options { "url": "https://example.com/" }
+ */
+const { screen, waitFor } = require("@testing-library/dom")
+const userEvent = require("@testing-library/user-event")
+require("@testing-library/jest-dom")
+
+test("Example", async () => {
+  expect(location.href).toBe("https://example.com/")
+  expect(document.title).toBe("Example Domain")
+  await waitFor(() => screen.getByText("More information..."))
+})
+```
+
 ## Inspiration
 
 - [Puppeteer Replay examples](https://github.com/puppeteer/replay/tree/main/examples)
