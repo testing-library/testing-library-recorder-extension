@@ -21,11 +21,6 @@ Testing Library Extension for Chrome DevTools Recorder
 5. Install `jest`, `jest-environment-jsdom`, and `jest-environment-url`
 6. Run tests with `jest`
 
-## Inspiration
-
-- [Puppeteer Replay examples](https://github.com/puppeteer/replay/tree/main/examples)
-- [Cypress Recorder Extension](https://github.com/cypress-io/cypress-recorder-extension)
-
 ## Supported Chrome Recorder Step Types
 
 | Type                | Output                                                                                               |
@@ -40,3 +35,8 @@ Testing Library Extension for Chrome DevTools Recorder
 | `navigate`          | `expect(location.href).toBe("https://example.com/")` `expect(document.title).toBe("Example Domain")` |
 | `waitForElement`    | `await waitFor(() => element)`                                                                       |
 | `waitForExpression` | `await waitFor(() => expression)`                                                                    |
+
+## Inspiration
+
+- [Puppeteer Replay examples](https://github.com/puppeteer/replay/tree/main/examples)
+- [Cypress Recorder Extension](https://github.com/cypress-io/cypress-recorder-extension)
