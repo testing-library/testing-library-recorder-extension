@@ -4,13 +4,11 @@ Testing Library Extension for Chrome DevTools Recorder
 
 ## Installation
 
-1. Clone the repo
-2. `npm install`
-3. `npm run build`
-4. Visit `chrome://extensions`
-5. Enable `Developer mode` via toggle switch in upper right corner
-6. Click `Load unpacked` button in upper left corner
-7. Select the `dist` directory
+1. Download and unzip the [latest release](https://github.com/nickmccurdy/testing-library-recorder-extension/releases/latest)
+2. Visit `chrome://extensions`
+3. Enable `Developer mode` via toggle switch in upper right corner
+4. Click `Load unpacked` button in upper left corner
+5. Select the `Testing Library Recorder` directory
 
 ## Usage
 
