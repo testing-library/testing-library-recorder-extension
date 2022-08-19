@@ -17,7 +17,7 @@ Testing Library Extension for Chrome DevTools Recorder
 1. Create a new recording via the Recorder panel.
 2. Hover over the export icon
 3. Click `Export as a Testing Library script`
-4. Save file as `{testName}.test.{ts.js}`
+4. Save file as `{testName}.test.{ts,js}`
 
 ## Inspiration
 
