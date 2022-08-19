@@ -46,6 +46,8 @@ Testing Library Extension for Chrome DevTools Recorder
 
 ## Example
 
+### Recording
+
 ```json
 {
   "title": "Example",
@@ -72,6 +74,8 @@ Testing Library Extension for Chrome DevTools Recorder
   ]
 }
 ```
+
+### Test Output
 
 ```js
 /**
