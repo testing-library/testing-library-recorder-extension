@@ -70,6 +70,11 @@ export class Extension implements StringifyExtension {
           })`,
         )
         break
+      case "keyDown":
+        out.appendLine(
+          `await userEvent.keyboard(${JSON.stringify(`{${step.key}}`)})`,
+        )
+        break
       case "navigate":
         if (step === flow.steps.find((step) => step.type === "navigate")) {
           for (const { url, title } of step.assertedEvents ?? []) {

@@ -67,6 +67,13 @@ describe("Extension", () => {
       ],
       [
         {
+          type: "keyDown",
+          key: "Meta",
+        },
+        'await userEvent.keyboard("{Meta}")',
+      ],
+      [
+        {
           type: "navigate",
           url: "https://example.com/",
           assertedEvents: [
