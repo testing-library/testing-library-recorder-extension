@@ -27,6 +27,7 @@ export class Extension implements StringifyExtension {
     out.appendLine(
       'const { screen, waitFor } = require("@testing-library/dom")',
     )
+    out.appendLine('const userEvent = require("@testing-library/user-event")')
     out.appendLine('require("@testing-library/jest-dom")')
 
     out.appendLine("")
