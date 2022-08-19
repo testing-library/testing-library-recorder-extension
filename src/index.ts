@@ -1,9 +1,9 @@
 import {
-  Selector,
   stringify,
   StringifyExtension,
   type LineWriter,
   type NavigateStep,
+  type Selector,
   type Step,
   type UserFlow,
 } from "@puppeteer/replay"
