@@ -18,6 +18,8 @@ Testing Library Extension for Chrome DevTools Recorder
 2. Hover over the export icon
 3. Click `Export as a Testing Library script`
 4. Save file as `{testName}.test.{ts,js}`
+5. Install `jest`, `jest-environment-jsdom`, and `jest-environment-url`
+6. Run tests with `jest`
 
 ## Inspiration
 
