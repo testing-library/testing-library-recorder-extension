@@ -46,7 +46,9 @@ export class Extension implements StringifyExtension {
     switch (step.type) {
       case "click":
         out.appendLine(
-          `userEvent.click(${stringifySelector(step.selectors[0])}")`,
+          `userEvent.click(${JSON.stringify(
+            stringifySelector(step.selectors[0]),
+          )})`,
         )
         break
       case "navigate":
@@ -56,7 +58,9 @@ export class Extension implements StringifyExtension {
               out.appendLine(`expect(location.href).toBe("${url}")`)
             }
             if (title) {
-              out.appendLine(`expect(document.title).toBe("${title}")`)
+              out.appendLine(
+                `expect(document.title).toBe(${JSON.stringify(title)})`,
+              )
             }
           }
         } else {
@@ -82,9 +86,9 @@ function stringifySelector(selector: Selector) {
   const selectorString = Array.isArray(selector) ? selector[0] : selector
 
   if (selectorString.startsWith("aria/")) {
-    return `screen.getByText("${selectorString.slice(5)}")`
+    return `screen.getByText(${JSON.stringify(selectorString.slice(5))})`
   } else {
-    return `document.querySelector("${selectorString}")`
+    return `document.querySelector(${JSON.stringify(selectorString)})`
   }
 }
 
