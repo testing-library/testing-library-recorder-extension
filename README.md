@@ -42,7 +42,7 @@ Testing Library Extension for Chrome DevTools Recorder
 | `waitForElement`    | `await waitFor(() => element)`                                                                       |
 | `waitForExpression` | `await waitFor(() => expression)`                                                                    |
 
-\* Only one `navigate` step is allowed per test because `jest-environment-url` must load pages since `jsdom` does not support navigation.
+\* Only one `navigate` step is allowed per test because `jest-environment-url` must load pages since `jsdom` does not support navigation. Without any `navigate` steps, you'll need to edit your test to manually load the DOM.
 
 ## Inspiration
 
