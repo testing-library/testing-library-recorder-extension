@@ -49,11 +49,6 @@ export class Extension implements StringifyExtension {
           `userEvent.click(${stringifySelector(step.selectors[0])}")`,
         )
         break
-      case "waitForElement":
-        out.appendLine(
-          `await waitFor(() => ${stringifySelector(step.selectors[0])})`,
-        )
-        break
       case "navigate":
         if (step === flow.steps.find((step) => step.type === "navigate")) {
           for (const { url, title } of step.assertedEvents ?? []) {
@@ -69,6 +64,11 @@ export class Extension implements StringifyExtension {
             "Warning: Testing Library does not currently handle more than one navigation step per test.",
           )
         }
+        break
+      case "waitForElement":
+        out.appendLine(
+          `await waitFor(() => ${stringifySelector(step.selectors[0])})`,
+        )
         break
       default:
         console.log(
