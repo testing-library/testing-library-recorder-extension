@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "name": "Testing Library Recorder",
   "description": "Testing Library Extension for Chrome DevTools Recorder",
+  "icons": {
+    "128": "octopus.png"
+  },
   "permissions": [],
   "devtools_page": "index.html",
   "content_security_policy": {
