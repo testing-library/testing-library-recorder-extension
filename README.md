@@ -1,6 +1,10 @@
 # Testing Library Recorder Extension
 
-Testing Library Extension for Chrome DevTools Recorder
+> Testing Library Extension for Chrome DevTools Recorder
+
+Export tests from the DevTools Recorder panel to Testing Library test scripts using Jest.
+
+Open a recording and click export to use the Testing Library script option.
 
 ![Screenshot](https://user-images.githubusercontent.com/927220/185593628-0beda94a-ec08-40a5-9c93-cf9ecb70527e.png)
 
