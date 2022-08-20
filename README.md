@@ -8,14 +8,6 @@ Open a recording and click export to use the Testing Library script option.
 
 ![Screenshot](https://user-images.githubusercontent.com/927220/185593628-0beda94a-ec08-40a5-9c93-cf9ecb70527e.png)
 
-## Installation
-
-1. Download and unzip the [latest release](https://github.com/nickmccurdy/testing-library-recorder-extension/releases/latest)
-2. Visit `chrome://extensions`
-3. Enable `Developer mode` via toggle switch in upper right corner
-4. Click `Load unpacked` button in upper left corner
-5. Select the `Testing Library Recorder` directory
-
 ## Usage
 
 1. Create a new recording via the Recorder panel.
