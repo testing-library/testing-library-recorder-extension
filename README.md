@@ -1,4 +1,4 @@
-# Testing Library Recorder Extension
+# <img src="octopus.png" alt="Octopus" width="48" height="48"> Testing Library Recorder Extension
 
 > Testing Library Extension for Chrome DevTools Recorder
 
