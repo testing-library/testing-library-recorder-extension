@@ -1,5 +1,6 @@
 import {
   stringify,
+  stringifyStep,
   type LineWriter,
   type NavigateStep,
   type Selector,
@@ -43,7 +44,7 @@ export class Extension implements StringifyExtension {
     out.appendLine("})")
   }
 
-  async stringifyStep(out: LineWriter, step: Step, flow: UserFlow) {
+  async stringifyStep(out: LineWriter, step: Step, flow?: UserFlow) {
     switch (step.type) {
       case "change":
         out.appendLine(
@@ -82,7 +83,10 @@ export class Extension implements StringifyExtension {
         )
         break
       case "navigate":
-        if (step === flow.steps.find((step) => step.type === "navigate")) {
+        if (
+          !flow ||
+          step === flow.steps.find((step) => step.type === "navigate")
+        ) {
           for (const { url, title } of step.assertedEvents ?? []) {
             if (url) {
               out.appendLine(`expect(location.href).toBe("${url}")`)
@@ -129,6 +133,10 @@ if (process.env.NODE_ENV !== "test") {
   class RecorderPlugin {
     stringify(recording: UserFlow) {
       return stringify(recording, { extension: new Extension() })
+    }
+
+    stringifyStep(step: Step) {
+      return stringifyStep(step, { extension: new Extension() })
     }
   }
 

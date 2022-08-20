@@ -2,13 +2,13 @@ import { readFile } from "fs/promises"
 import { join } from "path"
 import {
   stringify,
+  stringifyStep,
   type Selector,
   type Step,
   type UserFlow,
 } from "@puppeteer/replay"
 import { Extension } from "."
 import flow from "./fixtures/Example.json"
-import { LineWriterImpl } from "./LineWriterImpl"
 
 const extension = new Extension()
 const selectors: Selector[] = [["aria/Test"], ["#test"]]
@@ -108,9 +108,7 @@ describe("Extension", () => {
         "await waitFor(() => Promise.resolve())",
       ],
     ])("%p", async (step, expected) => {
-      const writer = new LineWriterImpl("  ")
-      await extension.stringifyStep(writer, step, { title: "", steps: [step] })
-      expect(writer.toString()).toBe(expected)
+      expect(await stringifyStep(step, { extension })).toBe(`${expected}\n`)
     })
   })
 })
