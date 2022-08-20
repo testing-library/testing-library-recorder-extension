@@ -65,7 +65,6 @@ Testing Library Extension for Chrome DevTools Recorder
     },
     {
       "type": "waitForElement",
-      "frame": [],
       "selectors": [
         ["aria/More information..."],
         ["body > div > p:nth-child(3) > a"]
