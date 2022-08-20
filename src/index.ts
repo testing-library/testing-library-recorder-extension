@@ -130,7 +130,9 @@ function stringifySelector(selector: Selector) {
 }
 
 if (process.env.NODE_ENV !== "test") {
-  class RecorderPlugin {
+  class RecorderPlugin
+    implements chrome.devtools.recorder.RecorderExtensionPlugin
+  {
     stringify(recording: UserFlow) {
       return stringify(recording, { extension: new Extension() })
     }
