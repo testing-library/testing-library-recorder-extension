@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "name": "Testing Library Recorder",
   "description": "Testing Library Extension for Chrome DevTools Recorder",
   "icons": {
