@@ -121,7 +121,7 @@ export class Extension implements StringifyExtension {
   }
 }
 
-function stringifySelector(selector: Selector) {
+export function stringifySelector(selector: Selector) {
   const selectorString = Array.isArray(selector) ? selector[0] : selector
 
   if (selectorString.startsWith("aria/")) {
@@ -131,19 +131,20 @@ function stringifySelector(selector: Selector) {
   }
 }
 
-if (process.env.NODE_ENV !== "test") {
-  class RecorderPlugin
-    implements chrome.devtools.recorder.RecorderExtensionPlugin
-  {
-    stringify(recording: UserFlow) {
-      return stringify(recording, { extension: new Extension() })
-    }
-
-    stringifyStep(step: Step) {
-      return stringifyStep(step, { extension: new Extension() })
-    }
+export class RecorderPlugin
+  implements chrome.devtools.recorder.RecorderExtensionPlugin
+{
+  stringify(recording: UserFlow) {
+    return stringify(recording, { extension: new Extension() })
   }
 
+  stringifyStep(step: Step) {
+    return stringifyStep(step, { extension: new Extension() })
+  }
+}
+
+// istanbul ignore next
+if (process.env.NODE_ENV !== "test") {
   chrome.devtools.recorder.registerRecorderExtensionPlugin(
     new RecorderPlugin(),
     "Testing Library",

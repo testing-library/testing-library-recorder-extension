@@ -7,7 +7,7 @@ import {
   type Step,
   type UserFlow,
 } from "@puppeteer/replay"
-import { Extension } from "."
+import { Extension, RecorderPlugin, stringifySelector } from "."
 import flow from "./fixtures/Example.json"
 
 const extension = new Extension()
@@ -112,6 +112,16 @@ describe("Extension", () => {
       ],
       [
         {
+          type: "doubleClick",
+          selectors,
+          button: "secondary",
+          offsetX: 0,
+          offsetY: 0,
+        },
+        'await userEvent.dblClick(screen.getByText("Test"), { buttons: 2 })',
+      ],
+      [
+        {
           type: "keyDown",
           key: "Meta",
         },
@@ -140,6 +150,14 @@ describe("Extension", () => {
       ],
       [
         {
+          type: "navigate",
+          url: "https://example.com/",
+          assertedEvents: [{ type: "navigation" }],
+        },
+        "",
+      ],
+      [
+        {
           type: "waitForElement",
           selectors,
         },
@@ -155,5 +173,29 @@ describe("Extension", () => {
     ])("%p", async (step, expected) => {
       expect(await stringifyStep(step, { extension })).toBe(`${expected}\n`)
     })
+  })
+})
+
+describe("stringifySelector", () => {
+  test("aria", () => {
+    expect(stringifySelector("aria/Test")).toBe('screen.getByText("Test")')
+  })
+
+  test("selector", () => {
+    expect(stringifySelector("p")).toBe('document.querySelector("p")')
+  })
+})
+
+describe("RecorderPlugin", () => {
+  test("stringify", async () => {
+    expect(await new RecorderPlugin().stringify(flow as UserFlow)).toBe(
+      await readFile(join(__dirname, "fixtures/example.test.js"), "utf8"),
+    )
+  })
+
+  test("stringifyStep", async () => {
+    expect(
+      await new RecorderPlugin().stringifyStep(flow.steps[1] as Step),
+    ).toBe('await waitFor(() => screen.getByText("More information..."))\n')
   })
 })
