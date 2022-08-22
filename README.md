@@ -78,7 +78,7 @@ Open a recording and click export to use the Testing Library script option.
  * @jest-environment-options { "url": "https://example.com/" }
  */
 const { screen, waitFor } = require("@testing-library/dom")
-const userEvent = require("@testing-library/user-event")
+const { default: userEvent } = require("@testing-library/user-event")
 require("@testing-library/jest-dom")
 
 test("Example", async () => {
