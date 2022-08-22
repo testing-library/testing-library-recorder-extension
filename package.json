@@ -30,6 +30,7 @@
   },
   "browserslist": "chrome 104",
   "jest": {
+    "restoreMocks": true,
     "testPathIgnorePatterns": [
       "/fixtures/"
     ]

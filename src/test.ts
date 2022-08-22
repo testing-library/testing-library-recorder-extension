@@ -14,10 +14,55 @@ const extension = new Extension()
 const selectors: Selector[] = [["aria/Test"], ["#test"]]
 
 describe("Extension", () => {
-  test("stringify", async () => {
-    expect(await stringify(flow as UserFlow, { extension })).toBe(
-      await readFile(join(__dirname, "fixtures/example.test.js"), "utf8"),
-    )
+  describe("stringify", () => {
+    test("fixture", async () => {
+      expect(await stringify(flow as UserFlow, { extension })).toBe(
+        await readFile(join(__dirname, "fixtures/example.test.js"), "utf8"),
+      )
+    })
+
+    test("multiple navigate steps", async () => {
+      const mock = jest.spyOn(console, "log").mockImplementation()
+      await stringify(
+        {
+          title: "Example",
+          steps: [
+            {
+              type: "navigate",
+              url: "https://example.com/",
+            },
+            {
+              type: "navigate",
+              url: "https://example.com/",
+            },
+          ],
+        },
+        { extension },
+      )
+      expect(mock).toHaveBeenCalledWith(
+        "Warning: Testing Library does not currently handle more than one navigation step per test.",
+      )
+    })
+
+    test("unsupported", async () => {
+      const mock = jest.spyOn(console, "log").mockImplementation()
+      await stringify(
+        {
+          title: "Example",
+          steps: [
+            {
+              type: "customStep",
+              name: "step",
+              parameters: {},
+            },
+          ],
+        },
+        { extension },
+      )
+      expect(mock).toHaveBeenCalledWith(
+        "Warning: Testing Library does not currently handle migrating steps of type: customStep. Please check the output to see how this might affect your test.",
+      )
+    })
   })
 
   describe("stringifyStep", () => {
