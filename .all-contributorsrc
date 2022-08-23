@@ -26,7 +26,8 @@
       "profile": "https://jec.fyi/",
       "contributions": [
         "code",
-        "bug"
+        "bug",
+        "doc"
       ]
     }
   ],
