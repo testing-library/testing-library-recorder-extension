@@ -7,7 +7,12 @@ import {
   type Step,
   type UserFlow,
 } from "@puppeteer/replay"
-import { Extension, RecorderPlugin, stringifySelector } from "."
+import {
+  Extension,
+  formatAsJSLiteral,
+  RecorderPlugin,
+  stringifySelector,
+} from "."
 import flow from "./fixtures/Example.json"
 
 const extension = new Extension()
@@ -173,6 +178,20 @@ describe("Extension", () => {
     ])("%p", async (step, expected) => {
       expect(await stringifyStep(step, { extension })).toBe(`${expected}\n`)
     })
+  })
+})
+
+describe("formatAsJSLiteral", () => {
+  test("space", () => {
+    expect(formatAsJSLiteral(" ")).toBe('" "')
+  })
+
+  test("single quote", () => {
+    expect(formatAsJSLiteral("'")).toBe('"\'"')
+  })
+
+  test("double quote", () => {
+    expect(formatAsJSLiteral('"')).toBe('"\\""')
   })
 })
 

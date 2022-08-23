@@ -121,7 +121,7 @@ export class Extension implements StringifyExtension {
   }
 }
 
-function formatAsJSLiteral(value: string) {
+export function formatAsJSLiteral(value: string) {
   return `"${value.replace(/"/g, '\\"')}"`
 }
 
