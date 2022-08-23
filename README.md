@@ -1,6 +1,6 @@
 # <img src="octopus.png" alt="Octopus" width="48" height="48"> Testing Library Recorder Extension
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 > Testing Library Extension for Chrome DevTools Recorder
@@ -106,6 +106,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://nickmccurdy.com/"><img src="https://avatars.githubusercontent.com/u/927220?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nick McCurdy</b></sub></a><br /><a href="https://github.com/testing-library/testing-library-recorder-extension/commits?author=nickmccurdy" title="Code">💻</a></td>
+    <td align="center"><a href="https://jec.fyi/"><img src="https://avatars.githubusercontent.com/u/5917927?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jecelyn Yeen</b></sub></a><br /><a href="https://github.com/testing-library/testing-library-recorder-extension/commits?author=jecfish" title="Code">💻</a></td>
   </tr>
 </table>
 
