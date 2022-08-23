@@ -1,0 +1,24 @@
+{
+  "projectName": "testing-library-recorder-extension",
+  "projectOwner": "testing-library",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "nickmccurdy",
+      "name": "Nick McCurdy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/927220?v=4",
+      "profile": "https://nickmccurdy.com/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
