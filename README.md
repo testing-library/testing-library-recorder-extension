@@ -2,7 +2,8 @@
 
 > Testing Library Extension for Chrome DevTools Recorder
 
-Export tests from the DevTools Recorder panel to Testing Library test scripts using Jest.
+Export tests from the DevTools Recorder panel to Testing Library test scripts
+using Jest.
 
 Open a recording and click export to use the Testing Library script option.
 
@@ -27,18 +28,20 @@ Open a recording and click export to use the Testing Library script option.
 
 | Type                | Output                                                                                               |
 | ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `change`            | `await userEvent.type(element, "value")`                                                             |
+| `change`            | `await userEvent.type(element, 'value')`                                                             |
 | `click`             | `await userEvent.click(element)`                                                                     |
-| `click` (right)     | `await userEvent.click(element, { buttons: 2 })`                                                     |
+| `click` (right)     | `await userEvent.click(element, {buttons: 2})`                                                       |
 | `hover`             | `await userEvent.hover(element)`                                                                     |
 | `doubleClick`       | `await userEvent.dblClick(element)`                                                                  |
-| `keyDown`           | `await userEvent.keyboard("{Key>}")`                                                                 |
-| `keyUp`             | `await userEvent.keyboard("{/Key}")`                                                                 |
-| `navigate` \*       | `expect(location.href).toBe("https://example.com/")` `expect(document.title).toBe("Example Domain")` |
+| `keyDown`           | `await userEvent.keyboard('{Key>}')`                                                                 |
+| `keyUp`             | `await userEvent.keyboard('{/Key}')`                                                                 |
+| `navigate` \*       | `expect(location.href).toBe('https://example.com/')` `expect(document.title).toBe('Example Domain')` |
 | `waitForElement`    | `await waitFor(() => element)`                                                                       |
 | `waitForExpression` | `await waitFor(() => expression)`                                                                    |
 
-\* Only one `navigate` step is allowed per test because `jest-environment-url` must load pages since `jsdom` does not support navigation. Without any `navigate` steps, you'll need to edit your test to manually load the DOM.
+\* Only one `navigate` step is allowed per test because `jest-environment-url`
+must load pages since `jsdom` does not support navigation. Without any
+`navigate` steps, you'll need to edit your test to manually load the DOM.
 
 ## Example
 
@@ -77,14 +80,14 @@ Open a recording and click export to use the Testing Library script option.
  * @jest-environment url
  * @jest-environment-options { "url": "https://example.com/" }
  */
-const { screen, waitFor } = require("@testing-library/dom")
-const { default: userEvent } = require("@testing-library/user-event")
-require("@testing-library/jest-dom")
+const {screen, waitFor} = require('@testing-library/dom')
+const {default: userEvent} = require('@testing-library/user-event')
+require('@testing-library/jest-dom')
 
-test("Example", async () => {
-  expect(location.href).toBe("https://example.com/")
-  expect(document.title).toBe("Example Domain")
-  await waitFor(() => screen.getByText("More information..."))
+test('Example', async () => {
+  expect(location.href).toBe('https://example.com/')
+  expect(document.title).toBe('Example Domain')
+  await waitFor(() => screen.getByText('More information...'))
 })
 ```
 

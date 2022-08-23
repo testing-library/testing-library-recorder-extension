@@ -12,5 +12,5 @@
     "target": "ES2015",
     "skipLibCheck": true
   },
-  "exclude": ["src/fixtures/*.test.*", "dist"]
+  "exclude": ["src/fixtures/*.test.*", "coverage", "dist"]
 }

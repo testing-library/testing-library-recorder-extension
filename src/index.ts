@@ -7,33 +7,31 @@ import {
   type Step,
   type StringifyExtension,
   type UserFlow,
-} from "@puppeteer/replay"
+} from '@puppeteer/replay'
 
 export class Extension implements StringifyExtension {
   async beforeAllSteps(out: LineWriter, flow: UserFlow) {
     // Jest docblock
-    out.appendLine("/**")
-    const step = flow.steps.find((step) => step.type === "navigate") as
+    out.appendLine('/**')
+    const step = flow.steps.find(step => step.type === 'navigate') as
       | NavigateStep
       | undefined
     if (step) {
-      out.appendLine(" * @jest-environment url")
+      out.appendLine(' * @jest-environment url')
       out.appendLine(` * @jest-environment-options { "url": "${step.url}" }`)
     } else {
-      out.appendLine(" * @jest-environment jsdom")
+      out.appendLine(' * @jest-environment jsdom')
     }
-    out.appendLine(" */")
+    out.appendLine(' */')
 
     // Imports
+    out.appendLine("const {screen, waitFor} = require('@testing-library/dom')")
     out.appendLine(
-      'const { screen, waitFor } = require("@testing-library/dom")',
+      "const {default: userEvent} = require('@testing-library/user-event')",
     )
-    out.appendLine(
-      'const { default: userEvent } = require("@testing-library/user-event")',
-    )
-    out.appendLine('require("@testing-library/jest-dom")')
+    out.appendLine("require('@testing-library/jest-dom')")
 
-    out.appendLine("")
+    out.appendLine('')
 
     // Test
     out.appendLine(`test(${formatAsJSLiteral(flow.title)}, async () => {`)
@@ -43,55 +41,55 @@ export class Extension implements StringifyExtension {
   async afterAllSteps(out: LineWriter) {
     // Test
     out.endBlock()
-    out.appendLine("})")
+    out.appendLine('})')
   }
 
   async stringifyStep(out: LineWriter, step: Step, flow?: UserFlow) {
     switch (step.type) {
-      case "change":
+      case 'change':
         out.appendLine(
           `await userEvent.type(${stringifySelector(
             step.selectors[0],
           )}, ${formatAsJSLiteral(step.value)})`,
         )
         break
-      case "click":
+      case 'click':
         out.appendLine(
           `await userEvent.click(${stringifySelector(step.selectors[0])}${
-            step.button === "secondary" ? ", { buttons: 2 }" : ""
+            step.button === 'secondary' ? ', {buttons: 2}' : ''
           })`,
         )
         break
-      case "hover":
+      case 'hover':
         out.appendLine(
           `await userEvent.hover(${stringifySelector(step.selectors[0])})`,
         )
         break
-      case "doubleClick":
+      case 'doubleClick':
         out.appendLine(
           `await userEvent.dblClick(${stringifySelector(step.selectors[0])}${
-            step.button === "secondary" ? ", { buttons: 2 }" : ""
+            step.button === 'secondary' ? ', {buttons: 2}' : ''
           })`,
         )
         break
-      case "keyDown":
+      case 'keyDown':
         out.appendLine(
           `await userEvent.keyboard(${formatAsJSLiteral(`{${step.key}>}`)})`,
         )
         break
-      case "keyUp":
+      case 'keyUp':
         out.appendLine(
           `await userEvent.keyboard(${formatAsJSLiteral(`{/${step.key}}`)})`,
         )
         break
-      case "navigate":
+      case 'navigate':
         if (
           !flow ||
-          step === flow.steps.find((step) => step.type === "navigate")
+          step === flow.steps.find(step => step.type === 'navigate')
         ) {
-          for (const { url, title } of step.assertedEvents ?? []) {
+          for (const {url, title} of step.assertedEvents ?? []) {
             if (url) {
-              out.appendLine(`expect(location.href).toBe("${url}")`)
+              out.appendLine(`expect(location.href).toBe(\'${url}\')`)
             }
             if (title) {
               out.appendLine(
@@ -101,16 +99,16 @@ export class Extension implements StringifyExtension {
           }
         } else {
           console.log(
-            "Warning: Testing Library does not currently handle more than one navigation step per test.",
+            'Warning: Testing Library does not currently handle more than one navigation step per test.',
           )
         }
         break
-      case "waitForElement":
+      case 'waitForElement':
         out.appendLine(
           `await waitFor(() => ${stringifySelector(step.selectors[0])})`,
         )
         break
-      case "waitForExpression":
+      case 'waitForExpression':
         out.appendLine(`await waitFor(() => ${step.expression})`)
         break
       default:
@@ -122,13 +120,13 @@ export class Extension implements StringifyExtension {
 }
 
 export function formatAsJSLiteral(value: string) {
-  return `"${value.replace(/"/g, '\\"')}"`
+  return `'${value.replace(/'/g, "\\'")}'`
 }
 
 export function stringifySelector(selector: Selector) {
   const selectorString = Array.isArray(selector) ? selector[0] : selector
 
-  if (selectorString.startsWith("aria/")) {
+  if (selectorString.startsWith('aria/')) {
     return `screen.getByText(${formatAsJSLiteral(selectorString.slice(5))})`
   } else {
     return `document.querySelector(${formatAsJSLiteral(selectorString)})`
@@ -139,19 +137,19 @@ export class RecorderPlugin
   implements chrome.devtools.recorder.RecorderExtensionPlugin
 {
   stringify(recording: UserFlow) {
-    return stringify(recording, { extension: new Extension() })
+    return stringify(recording, {extension: new Extension()})
   }
 
   stringifyStep(step: Step) {
-    return stringifyStep(step, { extension: new Extension() })
+    return stringifyStep(step, {extension: new Extension()})
   }
 }
 
 // istanbul ignore next
-if (process.env.NODE_ENV !== "test") {
+if (process.env.NODE_ENV !== 'test') {
   chrome.devtools.recorder.registerRecorderExtensionPlugin(
     new RecorderPlugin(),
-    "Testing Library",
-    "application/javascript",
+    'Testing Library',
+    'application/javascript',
   )
 }
