@@ -28,7 +28,8 @@
         "code",
         "bug",
         "doc",
-        "ideas"
+        "ideas",
+        "infra"
       ]
     }
   ],
