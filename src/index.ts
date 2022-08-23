@@ -36,7 +36,7 @@ export class Extension implements StringifyExtension {
     out.appendLine("")
 
     // Test
-    out.appendLine(`test(${JSON.stringify(flow.title)}, async () => {`)
+    out.appendLine(`test(${formatAsJSLiteral(flow.title)}, async () => {`)
     out.startBlock()
   }
 
@@ -52,7 +52,7 @@ export class Extension implements StringifyExtension {
         out.appendLine(
           `await userEvent.type(${stringifySelector(
             step.selectors[0],
-          )}, ${JSON.stringify(step.value)})`,
+          )}, ${formatAsJSLiteral(step.value)})`,
         )
         break
       case "click":
@@ -76,12 +76,12 @@ export class Extension implements StringifyExtension {
         break
       case "keyDown":
         out.appendLine(
-          `await userEvent.keyboard(${JSON.stringify(`{${step.key}>}`)})`,
+          `await userEvent.keyboard(${formatAsJSLiteral(`{${step.key}>}`)})`,
         )
         break
       case "keyUp":
         out.appendLine(
-          `await userEvent.keyboard(${JSON.stringify(`{/${step.key}}`)})`,
+          `await userEvent.keyboard(${formatAsJSLiteral(`{/${step.key}}`)})`,
         )
         break
       case "navigate":
@@ -95,7 +95,7 @@ export class Extension implements StringifyExtension {
             }
             if (title) {
               out.appendLine(
-                `expect(document.title).toBe(${JSON.stringify(title)})`,
+                `expect(document.title).toBe(${formatAsJSLiteral(title)})`,
               )
             }
           }
@@ -121,13 +121,17 @@ export class Extension implements StringifyExtension {
   }
 }
 
+function formatAsJSLiteral(value: string) {
+  return `"${value.replace(/"/g, '\\"')}"`
+}
+
 export function stringifySelector(selector: Selector) {
   const selectorString = Array.isArray(selector) ? selector[0] : selector
 
   if (selectorString.startsWith("aria/")) {
-    return `screen.getByText(${JSON.stringify(selectorString.slice(5))})`
+    return `screen.getByText(${formatAsJSLiteral(selectorString.slice(5))})`
   } else {
-    return `document.querySelector(${JSON.stringify(selectorString)})`
+    return `document.querySelector(${formatAsJSLiteral(selectorString)})`
   }
 }
 
