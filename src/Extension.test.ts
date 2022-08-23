@@ -175,25 +175,20 @@ describe('stringifyStep', () => {
 })
 
 describe('formatAsJSLiteral', () => {
-  test('space', () => {
-    expect(formatAsJSLiteral(' ')).toBe("' '")
-  })
-
-  test('single quote', () => {
-    expect(formatAsJSLiteral("'")).toBe("'\\''")
-  })
-
-  test('double quote', () => {
-    expect(formatAsJSLiteral('"')).toBe("'\"'")
+  test.each([
+    ['space', ' ', "' '"],
+    ['single quote', "'", "'\\''"],
+    ['double quote', '"', "'\"'"],
+  ])('%s', (_name, value, expected) => {
+    expect(formatAsJSLiteral(value)).toBe(expected)
   })
 })
 
 describe('stringifySelector', () => {
-  test('aria', () => {
-    expect(stringifySelector('aria/Test')).toBe("screen.getByText('Test')")
-  })
-
-  test('selector', () => {
-    expect(stringifySelector('p')).toBe("document.querySelector('p')")
+  test.each([
+    ['aria', 'aria/Test', "screen.getByText('Test')"],
+    ['selector', 'p', "document.querySelector('p')"],
+  ])('%s', (_name, selector, expected) => {
+    expect(stringifySelector(selector)).toBe(expected)
   })
 })
