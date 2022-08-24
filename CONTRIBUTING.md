@@ -9,7 +9,11 @@ series [How to Contribute to an Open Source Project on GitHub][egghead]
 
 1. Fork and clone the repo
 2. Run `npm run setup -s` to install dependencies and run validation
-3. Create a branch for your PR with `git checkout -b pr/your-branch-name`
+3. Visit `chrome://extensions`
+4. Enable `Developer mode` via toggle switch in upper right corner
+5. Click `Load unpacked` button in upper left corner
+6. Select the `dist` directory
+7. Create a branch for your PR with `git checkout -b pr/your-branch-name`
 
 > Tip: Keep your `main` branch pointing at the original repository and make pull
 > requests from branches on your fork. To do this, run:
