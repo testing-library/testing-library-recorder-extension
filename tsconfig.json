@@ -8,5 +8,5 @@
     "checkJs": true,
     "target": "ES2015"
   },
-  "exclude": ["src/fixtures/*.test.*", "coverage", "dist"]
+  "exclude": ["src/__tests__/fixtures/*.test.*"]
 }

@@ -28,7 +28,7 @@ minimal reproduction of what they're trying to accomplish or the bug they think
 they've found.
 
 Once it's determined that a code change is necessary, point people to
-[makeapullrequest.com](http://makeapullrequest.com) and invite them to make a
+[makeapullrequest.com](https://makeapullrequest.com) and invite them to make a
 pull request. If they're the one who needs the feature, they're the one who can
 build it. If they need some hand holding and you have time to lend a hand,
 please do so. It's an investment into another human being, and an investment

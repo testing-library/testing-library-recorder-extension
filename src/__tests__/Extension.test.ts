@@ -7,7 +7,7 @@ import {
   type Step,
   type UserFlow,
 } from '@puppeteer/replay'
-import Extension, {formatAsJSLiteral, stringifySelector} from './Extension'
+import Extension, {formatAsJSLiteral, stringifySelector} from '../Extension'
 import flow from './fixtures/Example.json'
 
 const extension = new Extension()

@@ -9,11 +9,6 @@ understand what's going on and fix the issue.
 I'll probably ask you to submit the fix (after giving some direction). If you've
 never done that before, that's great! Check this free short video tutorial to
 learn how: https://kcd.im/pull-request
-
-
-If this is an issue with the documentation, please file an issue in the docs repo:
-https://github.com/testing-library/testing-library-docs
-
 -->
 
 - Testing Library Recorder Extension version:
@@ -34,6 +29,13 @@ What you did:
 What happened:
 
 <!-- Please provide the full error message/screenshots/anything -->
+
+Reproduction repository:
+
+<!--
+If possible, please create a repository that reproduces the issue with the
+minimal amount of code possible.
+-->
 
 Problem description:
 

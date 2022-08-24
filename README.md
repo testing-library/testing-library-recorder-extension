@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Testing Library Recorder Extension</h1>
 
-<a href="https://www.emojione.com/emoji/1f419">
+<a href="https://joypixels.com/profiles/emoji/1f419">
   <img
     height="80"
     width="80"
@@ -11,10 +11,9 @@
 </a>
 
 <p>Testing Library Extension for Chrome DevTools Recorder</p>
-
 </div>
 
-<hr />
+---
 
 <!-- prettier-ignore-start -->
 [![Build Status][build-badge]][build]
@@ -50,7 +49,11 @@ Open a recording and click export to use the Testing Library script option.
   - [Recording](#recording)
   - [Test Output](#test-output)
 - [Inspiration](#inspiration)
-- [LICENSE](#license)
+- [Issues](#issues)
+  - [🐛 Bugs](#-bugs)
+  - [💡 Feature Requests](#-feature-requests)
+  - [❓ Questions](#-questions)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -143,12 +146,36 @@ test('Example', async () => {
 - [Puppeteer Replay examples](https://github.com/puppeteer/replay/tree/main/examples)
 - [Cypress Recorder Extension](https://github.com/cypress-io/cypress-recorder-extension)
 
-## LICENSE
+## Issues
+
+Looking to contribute? Look for the [Good First Issue][good-first-issue] label.
+
+### 🐛 Bugs
+
+Please file an issue for bugs, missing documentation, or unexpected behavior.
+
+[**See Bugs**][bugs]
+
+### 💡 Feature Requests
+
+Please file an issue to suggest new features. Vote on feature requests by adding
+a 👍. This helps maintainers prioritize what to work on.
+
+[**See Feature Requests**][requests]
+
+### ❓ Questions
+
+For questions related to using the library, please visit a support community
+instead of filing an issue on GitHub.
+
+- [Discord][discord]
+- [Stack Overflow][stackoverflow]
+
+## License
 
 [MIT](LICENSE)
 
 <!-- prettier-ignore-start -->
-
 [build-badge]: https://img.shields.io/github/workflow/status/testing-library/testing-library-recorder-extension/validate?logo=github&style=flat-square
 [build]: https://github.com/testing-library/testing-library-recorder-extension/actions?query=workflow%3Avalidate
 [coverage-badge]: https://img.shields.io/codecov/c/github/testing-library/testing-library-recorder-extension.svg?style=flat-square
@@ -159,9 +186,12 @@ test('Example', async () => {
 [license-badge]: https://img.shields.io/github/license/testing-library/testing-library-recorder-extension?style=flat-square
 [license]: https://github.com/testing-library/testing-library-recorder-extension/blob/main/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[prs]: http://makeapullrequest.com
+[prs]: https://makeapullrequest.com
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
 [coc]: https://github.com/testing-library/testing-library-recorder-extension/blob/main/CODE_OF_CONDUCT.md
+[bugs]: https://github.com/testing-library/testing-library-recorder-extension/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Acreated-desc+label%3Abug
+[requests]: https://github.com/testing-library/testing-library-recorder-extension/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
+[good-first-issue]: https://github.com/testing-library/testing-library-recorder-extension/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement+label%3A%22good+first+issue%22
 [github-watch-badge]: https://img.shields.io/github/watchers/testing-library/testing-library-recorder-extension.svg?style=social
 [github-watch]: https://github.com/testing-library/testing-library-recorder-extension/watchers
 [github-star-badge]: https://img.shields.io/github/stars/testing-library/testing-library-recorder-extension.svg?style=social
@@ -170,5 +200,5 @@ test('Example', async () => {
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/testing-library/testing-library-recorder-extension.svg?style=social
 [discord-badge]: https://img.shields.io/discord/723559267868737556.svg?color=7389D8&labelColor=6A7EC2&logo=discord&logoColor=ffffff&style=flat-square
 [discord]: https://discord.gg/testing-library
-
+[stackoverflow]: https://stackoverflow.com/questions/tagged/testing-library
 <!-- prettier-ignore-end -->
