@@ -20,7 +20,7 @@ export default {
   devtool: false,
   plugins: [
     new CopyPlugin({
-      patterns: ['manifest.json', 'octopus.png'],
+      patterns: ['manifest.json', 'other/octopus.png'],
     }),
     new HtmlPlugin(),
     new IgnorePlugin({

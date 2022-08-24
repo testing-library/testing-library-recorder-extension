@@ -87,7 +87,7 @@ export default class Extension implements StringifyExtension {
         ) {
           for (const {url, title} of step.assertedEvents ?? []) {
             if (url) {
-              out.appendLine(`expect(location.href).toBe(\'${url}\')`)
+              out.appendLine(`expect(location.href).toBe('${url}')`)
             }
             if (title) {
               out.appendLine(

@@ -1,8 +1,8 @@
-import type {Step, UserFlow} from '@puppeteer/replay'
 import {readFile} from 'fs/promises'
 import {join} from 'path'
-import flow from './fixtures/Example.json'
+import type {Step, UserFlow} from '@puppeteer/replay'
 import RecorderPlugin from './RecorderPlugin'
+import flow from './fixtures/Example.json'
 
 test('stringify', async () => {
   expect(await new RecorderPlugin().stringify(flow as UserFlow)).toBe(
