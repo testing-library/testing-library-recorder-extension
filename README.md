@@ -24,6 +24,9 @@ Open a recording and click export to use the Testing Library script option.
    ```
 6. Run tests with `jest`
 
+
+### [Troubleshooting](https://goo.gle/devtools-recorder-reference#extension-troubleshooting)
+
 ## Supported Chrome Recorder Step Types
 
 | Type                | Output                                                                                               |
