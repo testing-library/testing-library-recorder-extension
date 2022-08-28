@@ -1,8 +1,8 @@
-import webpack from "webpack"
-import CopyPlugin from "copy-webpack-plugin"
-import HtmlPlugin from "html-webpack-plugin"
+import webpack from 'webpack'
+import CopyPlugin from 'copy-webpack-plugin'
+import HtmlPlugin from 'html-webpack-plugin'
 
-const { IgnorePlugin } = webpack
+const {IgnorePlugin} = webpack
 
 export default {
   module: {
@@ -10,17 +10,17 @@ export default {
       {
         test: /\.(j|t)s$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".ts"],
+    extensions: ['.js', '.ts'],
   },
   devtool: false,
   plugins: [
     new CopyPlugin({
-      patterns: ["manifest.json", "octopus.png"],
+      patterns: ['manifest.json', 'other/octopus.png'],
     }),
     new HtmlPlugin(),
     new IgnorePlugin({
