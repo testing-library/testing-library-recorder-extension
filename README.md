@@ -1,5 +1,4 @@
-<div align="center">
-<h1>Testing Library Recorder Extension</h1>
+# <img src="octopus.png" alt="Octopus" width="48" height="48"> Testing Library Recorder Extension
 
 <a href="https://joypixels.com/profiles/emoji/1f419">
   <img
@@ -21,6 +20,7 @@
 [![version][version-badge]][extension]
 [![downloads][downloads-badge]][extension]
 [![MIT License][license-badge]][license]
+[![All Contributors][[all-contributors-badge]]](#contributors-)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 [![Discord][discord-badge]][discord]
@@ -53,6 +53,7 @@ Open a recording and click export to use the Testing Library script option.
   - [🐛 Bugs](#-bugs)
   - [💡 Feature Requests](#-feature-requests)
   - [❓ Questions](#-questions)
+- [Contributors ✨](#contributors-)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -146,6 +147,10 @@ test('Example', async () => {
 - [Puppeteer Replay examples](https://github.com/puppeteer/replay/tree/main/examples)
 - [Cypress Recorder Extension](https://github.com/cypress-io/cypress-recorder-extension)
 
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
+
 ## Issues
 
 Looking to contribute? Look for the [Good First Issue][good-first-issue] label.
@@ -171,6 +176,26 @@ instead of filing an issue on GitHub.
 - [Discord][discord]
 - [Stack Overflow][stackoverflow]
 
+## Contributors ✨
+
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://nickmccurdy.com/"><img src="https://avatars.githubusercontent.com/u/927220?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nick McCurdy</b></sub></a><br /><a href="https://github.com/testing-library/testing-library-recorder-extension/commits?author=nickmccurdy" title="Code">💻</a></td>
+    <td align="center"><a href="https://jec.fyi/"><img src="https://avatars.githubusercontent.com/u/5917927?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jecelyn Yeen</b></sub></a><br /><a href="https://github.com/testing-library/testing-library-recorder-extension/commits?author=jecfish" title="Code">💻</a> <a href="https://github.com/testing-library/testing-library-recorder-extension/issues?q=author%3Ajecfish" title="Bug reports">🐛</a> <a href="https://github.com/testing-library/testing-library-recorder-extension/commits?author=jecfish" title="Documentation">📖</a> <a href="#ideas-jecfish" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-jecfish" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-jecfish" title="Maintenance">🚧</a> <a href="#question-jecfish" title="Answering Questions">💬</a> <a href="#userTesting-jecfish" title="User Testing">📓</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ## License
 
 [MIT](LICENSE)
@@ -184,6 +209,7 @@ instead of filing an issue on GitHub.
 [extension]: https://chrome.google.com/webstore/detail/testing-library-recorder/pnobfbfcnoeealajjgnpeodbkkhgiici
 [downloads-badge]: https://img.shields.io/chrome-web-store/users/pnobfbfcnoeealajjgnpeodbkkhgiici?style=flat-square
 [license-badge]: https://img.shields.io/github/license/testing-library/testing-library-recorder-extension?style=flat-square
+[all-contributors-badge]: https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square
 [license]: https://github.com/testing-library/testing-library-recorder-extension/blob/main/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: https://makeapullrequest.com
