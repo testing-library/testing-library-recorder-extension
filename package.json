@@ -45,9 +45,6 @@
     "dist"
   ],
   "jest": {
-    "coveragePathIgnorePatterns": [
-      "src/index.ts"
-    ],
     "restoreMocks": true,
     "testPathIgnorePatterns": [
       "fixtures"
