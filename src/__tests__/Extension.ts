@@ -8,7 +8,7 @@ import {
   type UserFlow,
 } from '@puppeteer/replay'
 import Extension, {formatAsJSLiteral, stringifySelector} from '../Extension'
-import flow from './fixtures/Example.json'
+import flow from './fixtures/example.json'
 
 const extension = new Extension()
 const selectors: Selector[] = [['aria/Test'], ['#test']]
