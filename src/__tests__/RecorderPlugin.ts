@@ -6,7 +6,7 @@ import flow from './fixtures/Example.json'
 
 test('stringify', async () => {
   expect(await new RecorderPlugin().stringify(flow as UserFlow)).toBe(
-    await readFile(join(__dirname, 'fixtures/example.test.js'), 'utf8'),
+    await readFile(join(__dirname, 'fixtures/example.js'), 'utf8'),
   )
 })
 
