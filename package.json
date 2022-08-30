@@ -16,10 +16,14 @@
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-typescript": "^7.18.6",
     "@puppeteer/replay": "^0.6.1",
+    "@testing-library/dom": "^8.17.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^28.1.6",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest-environment-url": "^0.1.6",
     "kcd-scripts": "^12.2.1",
     "typescript": "^4.7.4",
     "webpack": "^5.74.0",
@@ -45,10 +49,7 @@
     "dist"
   ],
   "jest": {
-    "restoreMocks": true,
-    "testPathIgnorePatterns": [
-      "fixtures"
-    ]
+    "restoreMocks": true
   },
   "prettier": "kcd-scripts/prettier"
 }
