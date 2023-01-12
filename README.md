@@ -43,6 +43,10 @@ Open a recording and click export to use the Testing Library script option.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Usage](#usage)
+  - [Exporting entire workflows](#exporting-entire-workflows)
+  - [Exporting individual steps](#exporting-individual-steps)
+  - [Installing dependencies](#installing-dependencies)
+  - [Running tests](#running-tests)
   - [Troubleshooting](#troubleshooting)
 - [Supported Chrome Recorder Step Types](#supported-chrome-recorder-step-types)
 - [Example](#example)
@@ -59,18 +63,33 @@ Open a recording and click export to use the Testing Library script option.
 
 ## Usage
 
-1. Create a new recording via the Recorder panel.
-2. Hover over the export icon
-3. Click `Export as a Testing Library script`
-4. Save file as `{testName}.test.{ts,js}`
-5. Install dependencies
-   ```
-   npm install --save-dev jest jest-environment-jsdom jest-environment-url @testing-library/dom @testing-library/user-event @testing-library/jest-dom
-   ```
-   ```
-   yarn add --dev jest jest-environment-jsdom jest-environment-url @testing-library/dom @testing-library/user-event @testing-library/jest-dom
-   ```
-6. Run tests with `jest`
+### Exporting entire workflows
+
+1. Start or open a recording using the DevTools Recorder panel
+2. Click `Export as a Testing Library script` in the toolbar
+3. Save file as `{testName}.test.{ts,js}`
+
+### Exporting individual steps
+
+1. Start or open a recording using the DevTools Recorder panel
+2. Click `Copy as a Testing Library script` in the dropdown or right-click menu
+3. Paste into an existing file
+
+### Installing dependencies
+
+```
+npm install --save-dev jest jest-environment-jsdom jest-environment-url @testing-library/dom @testing-library/user-event @testing-library/jest-dom
+```
+
+```
+yarn add --dev jest jest-environment-jsdom jest-environment-url @testing-library/dom @testing-library/user-event @testing-library/jest-dom
+```
+
+### Running tests
+
+```
+jest
+```
 
 ### [Troubleshooting](https://goo.gle/devtools-recorder-reference#extension-troubleshooting)
 
@@ -116,7 +135,9 @@ must load pages since `jsdom` does not support navigation. Without any
       "type": "waitForElement",
       "selectors": [
         ["aria/More information..."],
-        ["body > div > p:nth-child(3) > a"]
+        ["body > div > p:nth-child(3) > a"],
+        ["xpath//html/body/div/p[2]/a"],
+        ["text/More information..."]
       ]
     }
   ]
