@@ -16,7 +16,9 @@
       "type": "waitForElement",
       "selectors": [
         ["aria/More information..."],
-        ["body > div > p:nth-child(3) > a"]
+        ["body > div > p:nth-child(3) > a"],
+        ["xpath//html/body/div/p[2]/a"],
+        ["text/More information..."]
       ]
     }
   ]
