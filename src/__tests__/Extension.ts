@@ -186,8 +186,8 @@ describe('formatAsJSLiteral', () => {
 
 describe('stringifySelector', () => {
   test.each([
+    ['default', '#test', "document.querySelector('#test')"],
     ['aria', 'aria/Test', "screen.getByText('Test')"],
-    ['selector', 'p', "document.querySelector('p')"],
   ])('%s', (_name, selector, expected) => {
     expect(stringifySelector(selector)).toBe(expected)
   })
