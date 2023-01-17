@@ -124,8 +124,19 @@ export function formatAsJSLiteral(value: string) {
 export function stringifySelector(selector: Selector) {
   const selectorString = Array.isArray(selector) ? selector[0] : selector
 
-  if (selectorString.startsWith('aria/')) {
+  if (
+    selectorString.startsWith('aria/') ||
+    selectorString.startsWith('text/')
+  ) {
     return `screen.getByText(${formatAsJSLiteral(selectorString.slice(5))})`
+  } else if (selectorString.startsWith('xpath/')) {
+    return `document.evaluate(${formatAsJSLiteral(
+      selectorString.slice(6),
+    )}, document, null, 9).singleNodeValue`
+  } else if (selectorString.startsWith('css/')) {
+    return `document.querySelector(${formatAsJSLiteral(
+      selectorString.slice(4),
+    )})`
   } else {
     return `document.querySelector(${formatAsJSLiteral(selectorString)})`
   }

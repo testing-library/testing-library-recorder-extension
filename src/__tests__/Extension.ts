@@ -11,7 +11,12 @@ import Extension, {formatAsJSLiteral, stringifySelector} from '../Extension'
 import flow from './fixtures/example.json'
 
 const extension = new Extension()
-const selectors: Selector[] = [['aria/Test'], ['#test']]
+const selectors: Selector[] = [
+  ['aria/Test'],
+  ['#test'],
+  ['xpath///*[@href="https://example.com/"]'],
+  ['text/Test'],
+]
 
 describe('stringify', () => {
   test('fixture', async () => {
@@ -188,6 +193,13 @@ describe('stringifySelector', () => {
   test.each([
     ['default', '#test', "document.querySelector('#test')"],
     ['aria', 'aria/Test', "screen.getByText('Test')"],
+    ['css', 'css/#test', "document.querySelector('#test')"],
+    [
+      'xpath',
+      'xpath///*[@href="https://example.com/"]',
+      'document.evaluate(\'//*[@href="https://example.com/"]\', document, null, 9).singleNodeValue',
+    ],
+    ['text', 'text/Test', "screen.getByText('Test')"],
   ])('%s', (_name, selector, expected) => {
     expect(stringifySelector(selector)).toBe(expected)
   })
