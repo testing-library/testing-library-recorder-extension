@@ -5,17 +5,16 @@ import {
   stringifyStep,
   type Selector,
   type Step,
-  type UserFlow,
 } from '@puppeteer/replay'
 import Extension, {formatAsJSLiteral, stringifySelector} from '../Extension'
-import flow from './fixtures/example.json'
+import flow from '../flow'
 
 const extension = new Extension()
 const selectors: Selector[] = [['aria/Test'], ['#test']]
 
 describe('stringify', () => {
   test('fixture', async () => {
-    expect(await stringify(flow as UserFlow, {extension})).toBe(
+    expect(await stringify(flow, {extension})).toBe(
       await readFile(join(__dirname, 'fixtures/example.js'), 'utf8'),
     )
   })
