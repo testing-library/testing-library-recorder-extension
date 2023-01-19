@@ -11,9 +11,9 @@ export default class Extension implements StringifyExtension {
   async beforeAllSteps(out: LineWriter, flow: UserFlow) {
     // Jest docblock
     out.appendLine('/**')
-    const step = flow.steps.find(step => step.type === 'navigate') as
-      | NavigateStep
-      | undefined
+    const step = flow.steps.find(
+      (step): step is NavigateStep => step.type === 'navigate',
+    )
     if (step) {
       out.appendLine(' * @jest-environment url')
       out.appendLine(` * @jest-environment-options { "url": "${step.url}" }`)
